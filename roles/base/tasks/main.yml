@@ -1,0 +1,30 @@
+---
+- name: upgrade apt system
+  sudo: true
+  apt: upgrade=yes update_cache=yes
+
+- name: Install base
+  sudo: true
+  apt: name={{ item }} state=latest update_cache=yes cache_valid_time=3600 force=yes
+  with_items:
+    - tmux
+    - vim
+    - git-core
+    - build-essential
+    - openssl
+    - libavahi-compat-libdnssd-dev
+    - libssl-dev
+    - pkg-config
+    - curl
+    - htop
+
+- name: Switch keyboard layout to DE
+  lineinfile: dest=/etc/default/keyboard regexp=XKBLAYOUT line='XKBLAYOUT="de"'
+  sudo: true
+
+# TODO copy interfaces file to /etc/network/interfaces
+# TODO copy wpa configuration with parameters to /etc/wpa_supplicant/wpa_supplicant.conf
+# see http://www.savagehomeautomation.com/projects/raspberry-pi-installing-the-edimax-ew-7811un-usb-wifi-adapte.html
+# TODO disable edimax power management in /etc/modprobe.d/8192cu.conf with the following content:
+# options 8192cu rtw_power_mgnt=0 rtw_enusbss=0
+# see https://www.raspberrypi.org/forums/viewtopic.php?t=61665

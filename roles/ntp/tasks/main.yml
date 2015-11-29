@@ -1,0 +1,25 @@
+---
+- name: update apt system
+  sudo: true
+  apt: update_cache=yes
+
+- name: Install base
+  sudo: true
+  apt: name=ntp state=latest update_cache=yes cache_valid_time=3600 force=yes
+
+- name: Set timezone variables
+  sudo: true
+  copy: content='Europe/Berlin'
+        dest=/etc/timezone
+        owner=root
+        group=root
+        mode=0644
+        backup=yes
+
+- name: update timezone
+  sudo: true
+  command: dpkg-reconfigure --frontend noninteractive tzdata
+
+- name: restart NTP
+  sudo: true
+  service: name=ntp state=restarted

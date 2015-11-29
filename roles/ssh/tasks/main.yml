@@ -1,0 +1,29 @@
+---
+- name: retrieve information about current user
+  user: name={{ ansible_user_id }} state=present
+  register: current_user
+
+- name: ensure authorized_keys.d directory is present
+  file: path={{ current_user["home"] }}/.ssh/authorized_keys.d state=directory owner={{ current_user["uid"] }} group={{ current_user["group"] }} mode=0700
+  when: ssh_public_keys_directory is defined
+
+- name: update SSH keys on remote host
+  synchronize: src={{ ssh_public_keys_directory }}/ dest={{ current_user["home"] }}/.ssh/authorized_keys.d archive=yes delete=yes rsync_opts=--no-motd,--exclude=coreos-cloudinit
+  when: ssh_public_keys_directory is defined
+  register: ssh_keys_sync
+
+- name: regenerate authorized_keys file for CoreOS
+  command: update-ssh-keys
+  when: ssh_keys_sync | changed and ansible_distribution == "CoreOS"
+
+- name: regenerate authorized_keys file for Ubuntu
+  raw: cat {{ current_user["home"] }}/.ssh/authorized_keys.d/* > {{ current_user["home"] }}/.ssh/authorized_keys
+  when: ssh_keys_sync | changed and (ansible_distribution == "Ubuntu" or ansible_distribution == 'Debian')
+
+- name: Disable password login via SSH
+  lineinfile: dest=/etc/ssh/sshd_config regexp=^#?PasswordAuthentication line="PasswordAuthentication no"
+  sudo: true
+
+- name: Define a message of the day to provide useful information on sign in
+  copy: src=etc/motd dest=/etc/motd
+  sudo: true

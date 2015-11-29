@@ -1,0 +1,9 @@
+- hosts: fresh-pis
+  roles:
+    - role: base
+    - role: ntp
+    - role: ssh
+    - role: rcswitch
+    - role: nodejs
+  vars:
+    - ssh_public_keys_directory: "./public_keys"
