@@ -15,6 +15,7 @@
     - libavahi-compat-libdnssd-dev
     - libssl-dev
     - pkg-config
+    - python-dev
     - curl
     - htop
 
