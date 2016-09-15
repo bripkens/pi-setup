@@ -1,0 +1,21 @@
+---
+
+- name: Template over interfaces file
+  template: src=/interfaces.j2 dest=/etc/network/interfaces owner=root group=root mode=0644
+  
+- name: Template over wpa_supplicant file; prompt for ssid and psk.
+  template: src=/wpa_supplicant.conf dest=/etc/wpa_supplicant/wpa_supplicant.conf  owner=root group=root mode=0644
+  vars_prompt:
+      - name: "wifi_ssid"
+        prompt: "Wifi SSID?"
+      - name: "wifi_psk"
+        prompt: "Wifi Pre-shared key?"
+
+  
+# TODO copy interfaces file to /etc/network/interfaces
+# TODO copy wpa configuration with parameters to /etc/wpa_supplicant/wpa_supplicant.conf
+# see http://www.savagehomeautomation.com/projects/raspberry-pi-installing-the-edimax-ew-7811un-usb-wifi-adapte.html
+# TODO disable edimax power management in /etc/modprobe.d/8192cu.conf with the following content:
+# options 8192cu rtw_power_mgnt=0 rtw_enusbss=0
+# see https://www.raspberrypi.org/forums/viewtopic.php?t=61665
+  
