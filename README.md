@@ -22,4 +22,3 @@ To use these scripts, you need to do the following:
  - [ ] configure static IP
  - [ ] IP table configuration
  - [ ] change of default password?
- - [ ] Is there a way to set linux to only accept passwordless ssh for security?
