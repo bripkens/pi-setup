@@ -1,10 +1,8 @@
 ---
 - name: upgrade apt system
-  sudo: true
   apt: upgrade=yes update_cache=yes
 
 - name: Install base
-  sudo: true
   apt: name={{ item }} state=latest update_cache=yes cache_valid_time=3600 force=yes
   with_items:
     - tmux
@@ -12,16 +10,15 @@
     - git-core
     - build-essential
     - openssl
-    - libavahi-compat-libdnssd-dev
     - libssl-dev
     - pkg-config
     - python-dev
     - curl
     - htop
 
-- name: Switch keyboard layout to DE
-  lineinfile: dest=/etc/default/keyboard regexp=XKBLAYOUT line='XKBLAYOUT="de"'
-  sudo: true
+- name: Switch keyboard layout to GB/UK
+  lineinfile: dest=/etc/default/keyboard regexp=XKBLAYOUT line='XKBLAYOUT="gb"'
+  
 
 # TODO copy interfaces file to /etc/network/interfaces
 # TODO copy wpa configuration with parameters to /etc/wpa_supplicant/wpa_supplicant.conf
