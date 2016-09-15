@@ -18,11 +18,3 @@
 
 - name: Switch keyboard layout to GB/UK
   lineinfile: dest=/etc/default/keyboard regexp=XKBLAYOUT line='XKBLAYOUT="gb"'
-  
-
-# TODO copy interfaces file to /etc/network/interfaces
-# TODO copy wpa configuration with parameters to /etc/wpa_supplicant/wpa_supplicant.conf
-# see http://www.savagehomeautomation.com/projects/raspberry-pi-installing-the-edimax-ew-7811un-usb-wifi-adapte.html
-# TODO disable edimax power management in /etc/modprobe.d/8192cu.conf with the following content:
-# options 8192cu rtw_power_mgnt=0 rtw_enusbss=0
-# see https://www.raspberrypi.org/forums/viewtopic.php?t=61665
