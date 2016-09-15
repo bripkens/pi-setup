@@ -22,3 +22,4 @@ To use these scripts, you need to do the following:
  - [ ] configure static IP
  - [ ] IP table configuration
  - [ ] change of default password?
+ - [ ] Make the wifi adding play something that just adds extra wifis to interfaces and wpa_supplicant
