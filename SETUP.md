@@ -1,3 +1,8 @@
+# Basic Pi Setup
+
+## Expand the file system
+
+
 ## Passwordless SSH and Creating Keys
 
 We're going to create a key pair that allows you to ssh into your raspberry pi without having to
