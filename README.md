@@ -1,13 +1,11 @@
 # Raspberry PI Base Setup
 This repository provides a set of Ansible scripts that you can use to setup your Raspberry PI.
 
-## What it can for you
+## What it does
  - Upgrades the system.
  - Installs a set of commonly used tools like vim, Git and tmux.
- - Installs Node.js v4.2.2.
- - Configures NTP to the Europe/Berlin time zone.
- - Switches the keyboard layout to a German one.
- - Installs wiringPi and rcswitch-pi.
+ - Configures NTP to the Europe/London time zone.
+ - Switches the keyboard layout to an Enlgish one.
  - Copies your public key to the RPI and disables password based SSH login.
 
 ## Usage
@@ -19,5 +17,9 @@ To use these scripts, you need to do the following:
  - Execute the `./run` script.
 
 ## TODO
- - [ ] automatic expanding of the root filesystem
+ - [ ] automatic expanding of the root filesystem + reboot
  - [ ] automatic configuration of the WIFI
+ - [ ] configure static IP
+ - [ ] IP table configuration
+ - [ ] change of default password?
+ - [ ] Is there a way to set linux to only accept passwordless ssh for security?
