@@ -1,0 +1,4 @@
+---
+
+- name: Define a message of the day to provide useful information on sign in
+  copy: src=etc/motd dest=/etc/motd
