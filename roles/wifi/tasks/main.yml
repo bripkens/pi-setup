@@ -5,11 +5,4 @@
   
 - name: Template over wpa_supplicant file; prompt for ssid and psk.
   template: src=/wpa_supplicant.conf dest=/etc/wpa_supplicant/wpa_supplicant.conf  owner=root group=root mode=0644
-  vars_prompt:
-      - name: "wifi_ssid"
-        prompt: "Wifi SSID?"
-      - name: "wifi_psk"
-        prompt: "Wifi Pre-shared key?"
-      - name: "wifi_id_string"
-        prompt: "Please enter a name for this wifi that you can use to differentiate it from other networks"
   
