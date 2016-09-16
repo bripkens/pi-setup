@@ -1,7 +1,19 @@
 - hosts: fresh-pis
   roles:
-    - role: base
-    - role: ntp
-    - role: ssh
+    #- role: base
+    #- role: ntp
+    #- role: motd
+    - role: wifi
   vars:
     - ssh_public_keys_directory: "./public_keys"
+
+- hosts: fresh-pis
+  roles:
+    - ssh
+  vars_prompt:
+    - name: "wifi_ssid"
+      prompt: "Wifi SSID"
+    - name: "wifi_psk"
+      prompt: "Wifi Pre-shared key"
+    - name: "wifi_id_string"
+      prompt: "Familiar name for this WiFi access point"
