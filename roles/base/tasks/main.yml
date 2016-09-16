@@ -15,6 +15,7 @@
     - python-dev
     - curl
     - htop
+    - monit
 
 - name: Switch keyboard layout to GB/UK
   lineinfile: dest=/etc/default/keyboard regexp=XKBLAYOUT line='XKBLAYOUT="gb"'
