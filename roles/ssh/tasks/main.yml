@@ -21,4 +21,4 @@
   when: ssh_keys_sync | changed and (ansible_distribution == "Ubuntu" or ansible_distribution == 'Debian')
 
 - name: Disable password login via SSH
-  lineinfile: dest=/etc/ssh/sshd_config regexp=^#?PasswordAuthentication line="PasswordAuthentication yes"
+  lineinfile: dest=/etc/ssh/sshd_config regexp=^#?PasswordAuthentication line="PasswordAuthentication {{ disable_password_login }}"
