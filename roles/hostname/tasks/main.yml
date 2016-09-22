@@ -1,0 +1,56 @@
+---
+
+# Where the user enters a new hostname for the pi, change it
+- name: Change the hostname on the pi
+  hostname: name="{{ new_hostname }}"
+  when: new_hostname != "" and new_hostname != "{{ inventory_hostname }}"
+  
+# Where the user doesn't enter a new hostname (default: raspberrypi)
+# get the current one and use that (for example, instead of IP)
+- name: Get the current pi hostname
+  shell: hostname
+  register: current_hostname
+
+- name: Set a value for new_hostname if it hasn't been set
+  set_fact:
+      new_hostname: "{{ current_hostname.stdout }}"
+  when: new_hostname == "" and new_hostname != "{{ inventory_hostname }}"
+
+# Always comment out the old host in the ansible hosts file
+- name: Comment existing IP/hostname
+  local_action: lineinfile dest=hosts regexp="{{ inventory_hostname }}" insertafter="[pis]" line="#{{ inventory_hostname }} Commented by hostname play to use hostname rather than IP"
+  sudo: false
+  when: new_hostname != "{{ inventory_hostname }}"
+  
+# Write the hostname (either system one or user provided) to the ansible inventory file
+- name: Write new hostname into hosts file (appends .local to hostname provided)
+  local_action: lineinfile dest=hosts regexp="{{ new_hostname }}.local" insertafter="[pis]" line="{{ new_hostname }}.local"
+  sudo: false
+  when: new_hostname != "{{ inventory_hostname }}"
+
+# Reboot the host and wait for it to come back
+- name: restart machine
+  shell: sleep 2 && shutdown -r now "Ansible updates triggered"
+  async: 1
+  poll: 0
+  ignore_errors: true
+  when: new_hostname != "{{ inventory_hostname }}"
+
+
+
+
+
+
+
+
+
+# Could not get the connection to be remade. The host comes back up, but it isn't available via wait_for
+
+#- name: waiting for server to come back
+#  local_action: wait_for host={{ ansible_ssh_host | default(inventory_hostname) }} state=started
+#  sudo: false
+  
+# Useful debug calls:
+#- debug: "var=hostvars"
+#- debug: "var=inventory_hostname"
+#- debug: "var=current_hostname"
