@@ -20,9 +20,9 @@ To use these scripts, you need to do the following:
 ## Defaults
 Sensible (for me) defaults are provided for the keyboard layout and timezone. To change them, edit `playbook.yml`, changing:
 
-  vars:
-    - keyboard : <your keyboard code>
-    - timezone : <your timezone> (from the `tz` field in [this table](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+    vars:
+        - keyboard : <your keyboard code>
+        - timezone : <your timezone> (from the `tz` field in [this table](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
  
 ## TODO
  - [ ] automatic expanding of the root filesystem + reboot
