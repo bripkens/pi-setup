@@ -16,6 +16,7 @@
     - curl
     - htop
     - monit
+    - mlocate
 
 - name: Switch keyboard layout to GB/UK
-  lineinfile: dest=/etc/default/keyboard regexp=XKBLAYOUT line='XKBLAYOUT="gb"'
+  lineinfile: dest=/etc/default/keyboard regexp=XKBLAYOUT line='XKBLAYOUT="{{ keyboard_layout }}"'
