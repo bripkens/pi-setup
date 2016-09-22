@@ -23,11 +23,3 @@ Sensible (for me) defaults are provided for the keyboard layout and timezone. To
   vars:
     - keyboard : <your keyboard code>
     - timezone : <your timezone> (from the `tz` field in [this table](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
- 
-## TODO
- - [ ] automatic expanding of the root filesystem + reboot
- - [ ] automatic configuration of the WIFI
- - [ ] configure static IP
- - [ ] IP table configuration
- - [ ] change of default password?
- - [ ] Make the wifi adding play something that just adds extra wifis to interfaces and wpa_supplicant
