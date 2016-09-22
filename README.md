@@ -47,9 +47,8 @@ You can use the `hostname` tag to change the system hostname of your RPI. Change
 ## Defaults
 Sensible (for me) defaults are provided for the keyboard layout and timezone. To change them, edit `playbook.yml`, changing:
 
-	vars:
-    	- keyboard : <your keyboard code>
-    	- timezone : <your timezone>
-
-Standard timezones can be found in the `tz` field in [this table](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
-
+    vars:
+        - keyboard : <your keyboard code>
+        - timezone : <your timezone>
+        
+For a list of timezones, see the `tz` field in [this table](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
