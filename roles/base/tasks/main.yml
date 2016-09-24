@@ -18,5 +18,5 @@
     - monit
     - mlocate
 
-- name: Switch keyboard layout to GB/UK
+- name: Switch keyboard layout
   lineinfile: dest=/etc/default/keyboard regexp=XKBLAYOUT line='XKBLAYOUT="{{ keyboard_layout }}"'
