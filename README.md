@@ -16,8 +16,9 @@ To use these scripts, you need to do the following:
 
  - Make sure that you have Ansible installed on the development laptop you will use alongside your Raspberry Pi.
  - Expand the filesystem on the PI manually (automatic expanding is in the backlog).
- - Create a keypair and copy the public SSH key to the `public_keys` directory.
- - Execute the `./run` script.
+ - Create a keypair and copy the public SSH key to the `public_keys` directory. See these instructions on creating a keypair.
+ - Set the variables that are important to you (see below).
+ - Execute the `./run` script. #TODO - this needs to include the ability to call tags.
 
 ## Variables
 
@@ -26,7 +27,9 @@ To use these scripts, you need to do the following:
 Having successfully setup key-based ssh, you can select to disable password-based login. In `playbook.yml`:
 
 	vars:
-	 	- disable_password_login : ( yes | no )
+	 	- password_login_permitted : ( "yes" | "no" )
+
+I think these values need to be quoted so that ansible treats them as a string and not boolean.
 
 ### Wifi
 
