@@ -10,7 +10,7 @@
     - ssh_public_keys_directory: ./public_keys
     - keyboard_layout: gb
     - timezone: Europe/London
-    - disable_password_login: no # or yes
+    - password_login_permitted: "yes"
   tags: basics
 
 # A Dedicated wifi play to set some of the parameters via prompt
