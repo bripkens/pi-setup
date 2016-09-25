@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Install/deployment script for pi setup
+# @author robrant
+#
+
+set -e
+
+IFS=$','
+
+export ANSIBLE_ERROR_ON_UNDEFINED_VARS=True
+export ANSIBLE_HOST_KEY_CHECKING=False
+
+if [[ $# -gt 0 ]]; then
+  echo 'Running ansible-playbook -i hosts playbook.yml --tags' "$*"
+  ansible-playbook --user=pi --ask-pass -i hosts playbook.yml --tags "$*"
+else
+  echo 'Running ansible-playbook -i hosts playbook.yml'
+  ansible-playbook --user=pi --ask-pass -i hosts playbook.yml
+fi
