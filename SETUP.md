@@ -4,7 +4,7 @@ Instructions for setting up your pi before using the ansible playbook.
 
 ## Expand the file system
 
-
+TODO
 
 ## Passwordless SSH and Creating Keys
 
