@@ -1,0 +1,39 @@
+
+---
+
+# GPS Notes/refs:
+# http://catb.org/gpsd/installation.html
+# https://nationpigeon.com/gps-raspberrypi/ - this one looks right for the gps 20U7 I bought.
+
+# Something about commenting out some lines??
+
+# Install dependencies
+- name: Install gps libraries
+  apt: name="{{ item }}" state=latest
+  with_items:
+   - gpsd
+   - gpsd-clients
+   - python-gps
+   
+# Start the gpsd service - USB gps device
+- name: Start gpsd service
+  command: gpsd /dev/ttyUSB0 -F /var/run/gpsd.sock 
+  
+# Modify the NTP conf
+- name: Add line 1
+  lineinfile: dest=/etc/ntp.conf regexp='server 127.127.28.1 minpoll 4 prefer' line='server 127.127.28.1 minpoll 4 prefer'
+
+- name: Add line 2
+  lineinfile: dest=/etc/ntp.conf regexp='fudge  127.127.28.1 refid PPS' line='fudge  127.127.28.1 refid PPS'
+
+# Restart
+# This is a bit clunky.
+- name: Kill gpsd
+  command: killall gpsd
+  ignore_errors: yes
+  
+- name: Start gpsd again
+  command: gpsd /dev/ttyUSB0 -F /var/run/gpsd.sock
+
+- name: Restart ntp
+  service: name=ntp state=restarted
