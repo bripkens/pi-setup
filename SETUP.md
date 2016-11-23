@@ -1,6 +1,6 @@
 # Before You Get Started
 
-'''You'll need''':
+''You'll need'':
 * A Raspberry Pi (I've only tested this on a B+), but it seems like it should work on others.
 * A wifi dongle. Mine is an Edimax.
 * Power (see below)
