@@ -105,3 +105,8 @@ To create a new keypair, follow the following instructions. This assumes you're 
 		The key's randomart image is:
  	
 3. Change the name of the public key to `pikey.pub` and copy into the `pi-setup/public_keys` directory inside the downloaded/cloned version of this repository.
+
+# Voodoo?
+
+If by some voodoo, this actually worked for you, then head back to the [README.md](/README.md) to run the play. If it didn't, please [raise an issue](https://github.com/robrant/pi-setup/issues/new).
+
