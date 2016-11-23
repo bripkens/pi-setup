@@ -1,4 +1,4 @@
-## Before You Get Started
+# Before You Get Started.
 
 ### You'll need:
 
@@ -23,7 +23,7 @@ A note about power: when I first started out, I used an old nokia charger (UK wa
 
 This is all about automating the installation and configuration of your Pi. It's for people who might not want to remember all those magical incantations and learn-by-doing installations this time round. I'm imaging you searched for 'Get me to the point with a Pi where I can develop and install my App (goddamit)' and ended up here.
 
-## Installing the Operating System
+# Installing the Operating System.
 
 ### 1. Download the latest Raspbian Image. I'm using Jesse.
 
@@ -32,7 +32,7 @@ You can download from [the official raspbian download page](https://www.raspberr
 ### 2. Download and Install PiBaker
 PiBaker is an easy Mac Utility for writing images to SD cards. [AlternativesTo.com](http://alternativeto.net/software/applepi-baker/about/) lists the Win32 Disk Imager, which might work for you on Windows. Download PiBaker from [here](http://www.tweaking4all.com/software/macosx-software/macosx-apple-pi-baker/). Scroll down to the green boxes to find the actual download button.
 
-### Write image to MicroSD
+### Write image to MicroSD.
 
 ![Image of the PiBaker UI](/images/piBakerWrite.png)
 
@@ -50,7 +50,39 @@ PiBaker is an easy Mac Utility for writing images to SD cards. [AlternativesTo.c
 3. Connect your Wireless dongle to the Pi.
 4. Connect your Pi to the power.
 
-## Passwordless SSH and Creating Keys
+# Locate and Test Connection.
+
+### Find the Pi on your network.
+
+1. Login to your router web admin page. Your laptop will need to be on the wifi access point provided by that router. In a browser, type in `192.168.0.1` or `192.168.0.2` in the url bar.
+
+2. Have a browse around until you find a tab/page called something like 'Attached Devices', which should show you a list of the devices that are connected to your router, either wirelessly or wiredly (?). 
+
+3. In this list there should be a device called `raspberrypi`. Scribble down the IP v4 associated with your pi. It should be something like `192.168.0.xx` where `xx` is a number less than 255. From now on I'll use the syntax `<pi_ip>` to represent this IP address you've just found.
+
+### Try SSHing into the Pi.
+
+Open a terminal...
+
+	**$> ssh pi@192.168.0.12**
+	The authenticity of host '192.168.0.12 (192.168.0.12)' can't be established.
+	ECDSA key fingerprint is SHA256:<zzzzzz>.
+	**Are you sure you want to continue connecting (yes/no)?** yes
+	Warning: Permanently added '<pi_ip>' (ECDSA) to the list of known hosts.
+	**pi@<pi_ip>'s password:** 
+
+	The programs included with the Debian GNU/Linux system are free software;
+	the exact distribution terms for each program are described in the
+	individual files in /usr/share/doc/*/copyright.
+
+	Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+	permitted by applicable law.
+	Last login: Fri May 27 11:50:56 2016
+	
+	pi@raspberrypi:~ $ 
+
+
+# Passwordless SSH and Creating Keys.
 
 We're going to create a key pair that allows you to ssh into your raspberry pi from your laptop without having to
 use the password every time. It
