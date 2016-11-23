@@ -64,12 +64,12 @@ PiBaker is an easy Mac Utility for writing images to SD cards. [AlternativesTo.c
 
 Open a terminal...
 
-	**$> ssh pi@192.168.0.12**
+	$> ssh pi@192.168.0.12
 	The authenticity of host '192.168.0.12 (192.168.0.12)' can't be established.
 	ECDSA key fingerprint is SHA256:<zzzzzz>.
-	**Are you sure you want to continue connecting (yes/no)?** yes
+	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added '<pi_ip>' (ECDSA) to the list of known hosts.
-	**pi@<pi_ip>'s password:** 
+	pi@<pi_ip>'s password:
 
 	The programs included with the Debian GNU/Linux system are free software;
 	the exact distribution terms for each program are described in the
@@ -85,7 +85,7 @@ Open a terminal...
 # Passwordless SSH and Creating Keys.
 
 We're going to create a key pair that allows you to ssh into your raspberry pi from your laptop without having to
-use the password every time. It
+use the password every time. It's optional; don't do it if you're already bored. The ansible script also needs some work to make this work seemlessly.
 
 To create a new keypair, follow the following instructions. This assumes you're on a \*nix flavoured laptop/box.
 
