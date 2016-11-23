@@ -1,6 +1,7 @@
-# Before You Get Started
+## Before You Get Started
 
-''You'll need'':
+### You'll need:
+
 * A Raspberry Pi (I've only tested this on a B+), but it seems like it should work on others.
 * A wifi dongle. Mine is an Edimax.
 * Power (see below)
@@ -10,13 +11,26 @@
 
 A note about power: when I first started out, I used an old nokia charger (UK wall plug --> micro USB) but it didn't work because it wasn't providing enough current to the Pi. I now successfully use an apple iPhone charger plug (which has a female USB) and a USB --> microUSB cable. Whatever you decide to use, check the spec of the plug part; it usually states it's output volts and amps in font size 2.5 somewhere.
 
-'''You won't need:''' Keyboard, mouse, HDMI cable or a monitor. Unless things go tits-up, in which case you might.
+### You won't need:
 
-# Installing the Operating System
+* Keyboard
+* Mouse
+* HDMI cable
+* A monitor
 
-Instructions for setting up your pi before using the ansible playbook.
+(Unless things go tits-up, in which case you might)
 
-Download PiBaker
+This is all about automating the installation and configuration of your Pi. It's for people who might not want to remember all those magical incantations and learn-by-doing installations this time round. I'm imaging you searched for 'Get me to the point with a Pi where I can develop and install my App (goddamit)' and ended up here.
+
+## Installing the Operating System
+
+### 1. Download the latest Raspbian Image. I'm using Jesse.
+
+You can download from [the official raspbian download page](https://www.raspberrypi.org/downloads/raspbian/).
+
+
+### 2. Download PiBaker
+PiBaker is an easy Mac Utility for writing images to SD cards. [AlternativesTo.com](http://alternativeto.net/software/applepi-baker/about/) lists the Win32 Disk Imager, which might work for you on Windows. Download PiBaker from [here](http://www.tweaking4all.com/software/macosx-software/macosx-apple-pi-baker/). Scroll down to the green boxes to find the actual download button.
 
 ## Expand the file system
 
