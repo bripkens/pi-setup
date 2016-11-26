@@ -44,3 +44,9 @@ To change them, edit `playbook.yml`, changing:
         - timezone : <your timezone>
 
 For a list of timezones, see the `tz` field in [this table](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+
+## Running
+
+Run the playbook
+
+  $> ./run
