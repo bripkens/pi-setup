@@ -50,3 +50,7 @@ For a list of timezones, see the `tz` field in [this table](https://en.wikipedia
 Run the playbook
 
   $> ./run
+
+Run a specific tag in the playbook (finer grained control of what gets run)
+
+  $> ./run ( basics | wifi | hostname )
