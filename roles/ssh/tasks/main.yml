@@ -21,9 +21,4 @@
   when: ssh_keys_sync | changed and (ansible_distribution == "Ubuntu" or ansible_distribution == 'Debian')
 
 - name: Disable password login via SSH
-  lineinfile: dest=/etc/ssh/sshd_config regexp=^#?PasswordAuthentication line="PasswordAuthentication no"
-  sudo: true
-
-- name: Define a message of the day to provide useful information on sign in
-  copy: src=etc/motd dest=/etc/motd
-  sudo: true
+  lineinfile: dest=/etc/ssh/sshd_config regexp="^#?PasswordAuthentication" line="PasswordAuthentication {{ password_login_permitted }}"
