@@ -60,3 +60,7 @@ Run the playbook
 Run a specific tag in the playbook (finer grained control of what gets run)
 
   $> ./run ( basics | wifi | hostname )
+
+You will be prompted for a password twice - once for the login of the `pi` user
+which we specify in the `./deploy` script and once for that user to sudo. The
+default password for the `pi` user is `raspbian`.
