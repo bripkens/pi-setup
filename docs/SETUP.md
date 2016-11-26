@@ -34,7 +34,7 @@ PiBaker is an easy Mac Utility for writing images to SD cards. [AlternativesTo.c
 
 ### Write image to MicroSD.
 
-![Image of the PiBaker UI](/images/piBakerWrite.png)
+![Image of the PiBaker UI](./images/piBakerWrite.png)
 
 1. Insert your USB/SD card
 2. Open PiBaker; you will probably have to provide your sudo password.
@@ -56,7 +56,7 @@ PiBaker is an easy Mac Utility for writing images to SD cards. [AlternativesTo.c
 
 1. Login to your router web admin page. Your laptop will need to be on the wifi access point provided by that router. In a browser, type in `192.168.0.1` or `192.168.0.2` in the url bar.
 
-2. Have a browse around until you find a tab/page called something like 'Attached Devices', which should show you a list of the devices that are connected to your router, either wirelessly or wiredly (?). 
+2. Have a browse around until you find a tab/page called something like 'Attached Devices', which should show you a list of the devices that are connected to your router, either wirelessly or wiredly (?).
 
 3. In this list there should be a device called `raspberrypi`. Scribble down the IP v4 associated with your pi. It should be something like `192.168.0.xx` where `xx` is a number less than 255. From now on I'll use the syntax `<pi_ip>` to represent this IP address you've just found.
 
@@ -78,8 +78,8 @@ Open a terminal...
 	Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 	permitted by applicable law.
 	Last login: Fri May 27 11:50:56 2016
-	
-	pi@raspberrypi:~ $ 
+
+	pi@raspberrypi:~ $
 
 
 # Passwordless SSH and Creating Keys.
@@ -96,17 +96,16 @@ To create a new keypair, follow the following instructions. This assumes you're 
 		$> ssh-keygen
 		Generating public/private rsa key pair.
 		Enter file in which to save the key (/Users/robrant/.ssh/id_rsa): /Users/robrant/.ssh/pikey.pem
-		Enter passphrase (empty for no passphrase): 
-		Enter same passphrase again: 
+		Enter passphrase (empty for no passphrase):
+		Enter same passphrase again:
 		Your identification has been saved in /Users/robrant/.ssh/pikey.pem.
 		Your public key has been saved in /Users/robrant/.ssh/pikey.pem.pub.
 		The key fingerprint is:
 		SHA256:<my sha was in here>
 		The key's randomart image is:
- 	
+
 3. Change the name of the public key to `pikey.pub` and copy into the `pi-setup/public_keys` directory inside the downloaded/cloned version of this repository.
 
 # Voodoo?
 
 If by some voodoo, this actually worked for you, then head back to the [README.md](/README.md) to run the play. If it didn't, please [raise an issue](https://github.com/robrant/pi-setup/issues/new).
-
