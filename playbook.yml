@@ -22,7 +22,7 @@
     - wifi_psk: ""
   tags: wifi
   gather_facts: false
-  
+
 # Sets a new hostname
 - hosts: pis
   roles:
