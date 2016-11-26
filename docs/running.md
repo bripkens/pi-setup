@@ -3,6 +3,12 @@
 To use this Ansible playbook, first set some variables and then run the `./run`
 script from the command line. Examples provided below.
 
+## Hosts file
+
+If this is the first time you've run this your default Raspbian OS has a hostname
+of `raspberrypi`, which is the hostname provided in the `hosts` file. Only change
+this if you either know the IP or have change the hostname on the raspberry pi.
+
 ## Variables
 
 ### SSH
